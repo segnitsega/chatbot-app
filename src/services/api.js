@@ -26,13 +26,26 @@ export const signupUser = async (username, password) => {
   }
 };
 
-// API for chatbot messages
-export const sendMessageToChatbot = async (message) => {
+// // API for chatbot messages
+// export const sendMessageToChatbot = async (message) => {
+//   try {
+//     const response = await axios.post(`${BASE_URL}/api/chat`, { message });
+//     return response.data;
+//   } catch (error) {
+//     console.error("Chatbot message error:", error.response?.data || error.message);
+//     throw error.response?.data || { msg: "Error interacting with chatbot" };
+//   }
+// };
+
+
+
+// Function to send the chat message to the backend
+export const sendMessageToAI = async (message) => {
   try {
-    const response = await axios.post(`${BASE_URL}/api/chat`, { message });
-    return response.data;
+    const response = await axios.post("/api/chat", { message });
+    return response.data.message;
   } catch (error) {
-    console.error("Chatbot message error:", error.response?.data || error.message);
-    throw error.response?.data || { msg: "Error interacting with chatbot" };
+    console.error("Error fetching AI response:", error);
+    throw new Error("Failed to get AI response");
   }
 };
