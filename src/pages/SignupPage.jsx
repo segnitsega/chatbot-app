@@ -21,6 +21,11 @@ const SignupPage = () => {
     }
   };
 
+  // oauth
+  const handleOAuthSignup = () => {
+    window.location.href = "http://localhost:5000/api/auth/google/signup"; // Redirect to backend OAuth route
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <h1 className="text-3xl font-bold mb-6">Sign Up</h1>
@@ -45,6 +50,13 @@ const SignupPage = () => {
           Sign Up
         </button>
       </form>
+       {/* Google OAuth Button */}
+       <button
+        onClick={handleOAuthSignup}
+        className="w-96 mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+      >
+        Sign Up with Google
+      </button>
     </div>
   );
 };

@@ -23,6 +23,10 @@ const LoginPage = () => {
       setErrorMessage(error.message);
     }
   };
+  //oauth
+  const handleOAuthLogin = () => {
+    window.location.href = "http://localhost:5000/api/auth/google/login"; // Redirect to backend OAuth route
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
@@ -49,6 +53,13 @@ const LoginPage = () => {
           Login
         </button>
       </form>
+      {/* Google OAuth Button */}
+      <button
+        onClick={handleOAuthLogin}
+        className="w-96 mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+      >
+        Login with Google
+      </button>
     </div>
   );
 };
