@@ -63,10 +63,10 @@ const ChatPage = () => {
 
       try {
         // Send message to the backend to get AI's response
-        const aiResponse = await sendMessageToAI(input);
+        const response = await sendMessageToAI(input);
 
         // Add AI response to the message list
-        setMessages((prev) => [...prev, { sender: "bot", text: aiResponse }]);
+        setMessages((prev) => [...prev, { sender: "bot", text: response }]);
       } catch (error) {
         console.error("Error fetching AI response:", error);
         // Optionally, you can show an error message to the user

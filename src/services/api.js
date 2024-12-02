@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000"; // Update as needed
+const BASE_URL = "http://localhost:5000/api"; // Update as needed
 
 // API for user login
 export const loginUser = async (username, password) => {
@@ -42,8 +42,16 @@ export const signupUser = async (username, password) => {
 // Function to send the chat message to the backend
 export const sendMessageToAI = async (message) => {
   try {
-    const response = await axios.post("/api/chat", { message });
-    return response.data.message;
+    const token = localStorage.getItem("authToken"); // Retrieve token from storage
+    const response = await axios.post(`${BASE_URL}/chat/send`, { message },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Attach token
+        },
+      }
+    );
+
+    return response.data.response;
   } catch (error) {
     console.error("Error fetching AI response:", error);
     throw new Error("Failed to get AI response");
