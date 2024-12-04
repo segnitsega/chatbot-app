@@ -1,8 +1,8 @@
 
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signupUser } from "../services/api"; // Import the signup API function
+import { signupUser } from "../services/api"; 
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
@@ -13,50 +13,48 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-      // Make the signup API call
       await signupUser(username, password);
-      navigate("/login"); // Redirect to the login page after successful signup
+      navigate("/login"); 
     } catch (error) {
       console.error("Signup failed:", error.message);
     }
   };
 
-  // oauth
-  const handleOAuthSignup = () => {
-    window.location.href = "http://localhost:5000/api/auth/google?signup=true"; // Redirect to backend OAuth route
-  };
+
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Sign Up</h1>
-      <form className="w-96 bg-white p-6 shadow-md rounded-md" onSubmit={handleSignup}>
+    <div className="bg-slate-800 bg-cover min-h-screen flex flex-col items-center justify-center ">
+      <h1 className="mb-4 text-4xl font-bold text-blue-600">Sign Up</h1>
+      <form className="w-96 p-6 shadow-md rounded-md" onSubmit={handleSignup}>
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full mb-4 px-4 py-2 border rounded-md"
+          className="focus:outline-none focus:ring-2 focus:ring-blue-500 w-full mb-4 px-4 py-2 border rounded-md"
           required
         />
+
+        <input
+          type="email"
+          placeholder="Email"
+          className="focus:outline-none focus:ring-2 focus:ring-blue-700 w-full mb-4 px-4 py-2 border rounded-md"
+          required
+        />
+
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full mb-4 px-4 py-2 border rounded-md"
+          className="focus:outline-none focus:ring-2 focus:ring-blue-700 w-full mb-4 px-4 py-2 border rounded-md"
           required
         />
-        <button type="submit" className="w-full px-4 py-2 bg-blue-500 text-white rounded-md">
+        <button type="submit" className="w-full px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-600">
           Sign Up
         </button>
       </form>
-       {/* Google OAuth Button */}
-       <button
-        onClick={handleOAuthSignup}
-        className="w-96 mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
-      >
-        Sign Up with Google
-      </button>
+       
     </div>
   );
 };
