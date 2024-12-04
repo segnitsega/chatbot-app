@@ -23,7 +23,7 @@ const SignupPage = () => {
 
   // oauth
   const handleOAuthSignup = () => {
-    window.location.href = "http://localhost:5000/api/auth/google/signup"; // Redirect to backend OAuth route
+    window.location.href = "http://localhost:5000/api/auth/google?signup=true"; // Redirect to backend OAuth route
   };
 
   return (

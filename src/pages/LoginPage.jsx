@@ -1,6 +1,4 @@
-
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/api"; // Import login API function
 
@@ -25,7 +23,7 @@ const LoginPage = () => {
   };
   //oauth
   const handleOAuthLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google/login"; // Redirect to backend OAuth route
+    window.location.href = "http://localhost:5000/api/auth/google"; // Redirect to backend OAuth route
   };
 
   return (
