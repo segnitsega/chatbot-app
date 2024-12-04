@@ -21,11 +21,7 @@ const LoginPage = () => {
       setErrorMessage(error.message);
     }
   };
-  //oauth
-  const handleOAuthLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google"; // Redirect to backend OAuth route
-  };
-
+  
   return (
     <div className="bg-slate-800 min-h-screen flex flex-col items-center justify-center ">
       <h1 className="text-4xl font-bold mb-6 text-blue-600">Login</h1>
