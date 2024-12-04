@@ -6,6 +6,9 @@ const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
+
+ 
+
   const handleSend = async () => {
     if (input.trim() !== "") {
       // Add user message to the message list
