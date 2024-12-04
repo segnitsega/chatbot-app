@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../services/api"; // Import login API function
+import { loginUser } from "../services/api"; 
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -13,11 +13,9 @@ const LoginPage = () => {
 
     try {
       const data = await loginUser(username, password);
-      // Save token to localStorage or context for use in protected routes
       localStorage.setItem("authToken", data.token); 
-      navigate("/chat"); // Redirect to the chat page after successful login
+      navigate("/chat"); 
     } catch (error) {
-      // console.error("Login failed:", error.message);
       setErrorMessage(error.message);
     }
   };
@@ -35,6 +33,16 @@ const LoginPage = () => {
           className="focus:outline-none focus:ring-2 focus:ring-blue-500 w-full mb-4 px-4 py-2 border rounded-md"
           required
         />
+
+        <input
+          type="email"
+          placeholder="Email"
+          // value={}
+          // onChange={}
+          className="focus:outline-none focus:ring-2 focus:ring-blue-500 w-full mb-4 px-4 py-2 border rounded-md"
+          required
+        />
+
         <input
           type="password"
           placeholder="Password"
