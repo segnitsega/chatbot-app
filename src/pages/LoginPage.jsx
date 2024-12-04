@@ -47,7 +47,7 @@ const LoginPage = () => {
           className="focus:outline-none focus:ring-2 focus:ring-blue-500 w-full mb-4 px-4 py-2 border rounded-md"
           required
         />
-        <button type="submit" className="w-full px-4 py-2 bg-blue-500 text-white rounded-md">
+        <button type="submit" className="w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md">
           Login
         </button>
       </form>
