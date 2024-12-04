@@ -27,16 +27,16 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Login</h1>
+    <div className="bg-slate-800 min-h-screen flex flex-col items-center justify-center ">
+      <h1 className="text-4xl font-bold mb-6 text-blue-600">Login</h1>
       {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
-      <form className="w-96 bg-white p-6 shadow-md rounded-md" onSubmit={handleLogin}>
+      <form className="w-96 bg-slate-700 p-6 shadow-md rounded-md" onSubmit={handleLogin}>
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full mb-4 px-4 py-2 border rounded-md"
+          className="focus:outline-none focus:ring-2 focus:ring-blue-500 w-full mb-4 px-4 py-2 border rounded-md"
           required
         />
         <input
@@ -44,20 +44,14 @@ const LoginPage = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full mb-4 px-4 py-2 border rounded-md"
+          className="focus:outline-none focus:ring-2 focus:ring-blue-500 w-full mb-4 px-4 py-2 border rounded-md"
           required
         />
         <button type="submit" className="w-full px-4 py-2 bg-blue-500 text-white rounded-md">
           Login
         </button>
       </form>
-      {/* Google OAuth Button */}
-      <button
-        onClick={handleOAuthLogin}
-        className="w-96 mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
-      >
-        Login with Google
-      </button>
+      
     </div>
   );
 };

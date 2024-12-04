@@ -23,9 +23,9 @@ const SignupPage = () => {
 
 
   return (
-    <div className="bg-slate-800 bg-cover min-h-screen flex flex-col items-center justify-center ">
+    <div className="bg-slate-800 bg-cover min-h-screen flex flex-col items-center justify-center">
       <h1 className="mb-4 text-4xl font-bold text-blue-600">Sign Up</h1>
-      <form className="w-96 p-6 shadow-md rounded-md" onSubmit={handleSignup}>
+      <form className="bg-slate-700 w-96 p-6 shadow-md rounded-md" onSubmit={handleSignup}>
         <input
           type="text"
           placeholder="Username"
