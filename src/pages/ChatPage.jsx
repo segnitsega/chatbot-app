@@ -54,7 +54,7 @@ const ChatPage = () => {
             key={idx}
             className={`mb-4 ${msg.sender === "user" ? "text-right" : "text-left"}`}
           >
-            <div className={`inline-block px-4 py-2 rounded-md ${msg.sender === "user" ? "bg-blue-500 text-white mr-12 mt-16" : "bg-gray-300 ml-32 mr-80"}`}>
+            <div className={`inline-block px-4 py-2 rounded-md ${msg.sender === "user" ? "bg-blue-500 text-white mr-12 mt-16" : "bg-gray-300 ml-32 mr-80 mb-8"}`}>
 
               {msg.text}
             </div>
