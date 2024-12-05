@@ -5,6 +5,7 @@ import { signupUser } from "../services/api";
 const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -12,9 +13,11 @@ const SignupPage = () => {
 
     try {
       await signupUser(username, password);
+      setErrorMessage("");
       navigate("/login"); 
     } catch (error) {
       console.error("Signup failed:", error.message);
+      setErrorMessage(error.message);
     }
   };
 
@@ -23,6 +26,13 @@ const SignupPage = () => {
   return (
     <div className="bg-slate-800 bg-cover min-h-screen flex flex-col items-center justify-center">
       <h1 className="mb-4 text-4xl font-bold text-blue-600">Sign Up</h1>
+
+      {errorMessage && (
+        <div className="mb-4 text-red-500 text-center font-semibold">
+          {errorMessage}
+        </div>
+      )}
+
       <form className="bg-slate-700 w-96 p-6 shadow-md rounded-md" onSubmit={handleSignup}>
         <input
           type="text"
