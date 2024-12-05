@@ -40,6 +40,8 @@ This is the frontend for the **Generative AI Chatbot App**, a real-time chatbot 
 2. Start chatting with the AI in real-time!
 3. Enjoy the seamless conversation experience.
 
+t
+
 ## Project Structure
     ```bash
         src/
@@ -48,3 +50,7 @@ This is the frontend for the **Generative AI Chatbot App**, a real-time chatbot 
         ├── App.js              # Magitin app component
         ├── index.js            # Entry point
         └── tailwind.config.js  # Tailwind configuration
+
+        
+## Backend Repo:
+https://github.com/segnitsega/chatbot-app-backend.git
