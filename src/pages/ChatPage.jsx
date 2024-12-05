@@ -5,7 +5,7 @@ import { sendMessageToAI } from "../services/api"; // Import API function to int
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-
+  const [isTyping, setIsTyping] = useState(false);
 
  
 
@@ -14,11 +14,15 @@ const ChatPage = () => {
       // Add user message to the message list
       setMessages([...messages, { sender: "user", text: input }]);
 
+      setIsTyping(true);
+
       try {
         // Send message to the backend to get AI's response
         // Clear input field
         setInput("");
         const response = await sendMessageToAI(input);
+
+        setIsTyping(false);
 
         // Add AI response to the message list
         setMessages((prev) => [...prev, { sender: "bot", text: response }]);
@@ -56,6 +60,15 @@ const ChatPage = () => {
             </div>
           </div>
         ))}
+
+        {isTyping && (
+          <div className="text-left ml-32 mb-4">
+            <div className="font-bold inline-block text-blue-500 rounded-md">
+              Typing ...
+            </div>
+          </div>
+        )}
+
       </div>
       <footer className="fixed bottom-0 right-0 left-0 bg-slate-800 p-4 flex items-center ">
         <input
