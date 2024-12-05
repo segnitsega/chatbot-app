@@ -19,8 +19,8 @@ This is the frontend for the **Generative AI Chatbot App**, a real-time chatbot 
 
 1. Clone the repository:
    ```bash
-   git clone <frontend-repo-url>
-   cd <frontend-repo-folder>
+   git clone https://github.com/segnitsega/chatbot-app.git
+   cd chatbot-app
 2. Install dependencies:
     ```bash
     npm install 
@@ -42,9 +42,9 @@ This is the frontend for the **Generative AI Chatbot App**, a real-time chatbot 
 
 ## Project Structure
     ```bash
-src/
-├── pages/              # Page-level components
-├── services/           # API interaction logic
-├── App.js              # Magitin app component
-├── index.js            # Entry point
-└── tailwind.config.js  # Tailwind configuration
+        src/
+        ├── pages/              # Page-level components
+        ├── services/           # API interaction logic
+        ├── App.js              # Magitin app component
+        ├── index.js            # Entry point
+        └── tailwind.config.js  # Tailwind configuration
