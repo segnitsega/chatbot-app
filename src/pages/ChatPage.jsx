@@ -17,18 +17,17 @@ const ChatPage = () => {
       setIsTyping(true);
 
       try {
-        // Send message to the backend to get AI's response
-        // Clear input field
+        
         setInput("");
         const response = await sendMessageToAI(input);
 
         setIsTyping(false);
 
-        // Add AI response to the message list
+        
         setMessages((prev) => [...prev, { sender: "bot", text: response }]);
       } catch (error) {
         console.error("Error fetching AI response:", error);
-        // Optionally, you can show an error message to the user
+        
         setMessages((prev) => [...prev, { sender: "bot", text: "Sorry, I couldn't get a response. Please try again." }]);
       }
 
@@ -39,8 +38,8 @@ const ChatPage = () => {
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // Prevent the default behavior (e.g., new line in text area)
-      handleSend(); // Call handleSend function when Enter key is pressed
+      e.preventDefault(); 
+      handleSend(); 
     }
   }
   return (
